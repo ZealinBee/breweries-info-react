@@ -2,17 +2,26 @@ import React from "react";
 import Brewery from "../interfaces/Brewery";
 import { Link } from "react-router-dom";
 import BreweryPage from "../pages/BreweryPage";
+import { Button, Card, Typography } from "@mui/material";
+import { Link as MuiLink } from "@mui/material";
 
 interface Props {
   brewery: Brewery;
 }
 function BreweryCard(props: Props) {
   return (
-    <div>
-      <Link to={`/breweries/${props.brewery.id}`}>
-        <h1>{props.brewery.name}</h1>
+    <Card className="card">
+      <Typography mb={4} fontWeight={700} fontSize={20}>{props.brewery.name}</Typography>
+      <Typography mb={1} fontWeight={400} >{props.brewery.state}</Typography>
+      <MuiLink color="secondary" href={props.brewery.website_url}>
+        {props.brewery.website_url}
+      </MuiLink>
+      <Link to={`breweries/${props.brewery.id}`} >
+        <Button variant="contained" color="secondary" className="learn-more-button">
+          Learn More
+        </Button>
       </Link>
-    </div>
+    </Card>
   );
 }
 

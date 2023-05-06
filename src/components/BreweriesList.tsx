@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import BreweryCard from "./BreweryCard";
 import Brewery from "../interfaces/Brewery";
+import withLoading from "./withLoading";
+import { Grid, Container } from "@mui/material";
 
 interface Props {
   breweries: Brewery[];
@@ -10,7 +12,7 @@ interface Props {
   setOriginalBreweries: (breweries: Brewery[]) => void;
 }
 
-function BreweriesList(props : Props) {
+function BreweriesList(props: Props) {
   useEffect(() => {
     axios
       .get<Brewery[]>("https://api.openbrewerydb.org/breweries")
@@ -21,11 +23,15 @@ function BreweriesList(props : Props) {
   }, []);
 
   return (
-    <>
-      {props.breweries.map((brewery: Brewery) => {
-        return <BreweryCard brewery={brewery} key={brewery.id} />;
-      })}
-    </>
+    <Container>
+      <Grid container spacing={2}>
+        {props.breweries.map((brewery) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={brewery.id}>
+            <BreweryCard brewery={brewery} />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 }
 

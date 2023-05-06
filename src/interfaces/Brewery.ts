@@ -12,7 +12,7 @@ export default interface Brewery {
   longitude: string;
   latitude: string;
   phone: string;
-  website_url: string;
+  website_url?: string;
   state: string;
   street: string;
 }
