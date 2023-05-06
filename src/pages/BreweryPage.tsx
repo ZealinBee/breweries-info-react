@@ -24,9 +24,9 @@ function BreweryPage() {
         <div className="brewery__details">
           <Typography fontWeight={700} fontSize={25}>{brewery.name}</Typography>
           <Typography>Type: {brewery.brewery_type} brewery</Typography>
-          <Typography>Address: {brewery.address_1} {brewery.city}, {brewery.state}, {brewery.postal_code}</Typography>
-
-          <MuiLink>Website: {brewery.website_url}</MuiLink>
+          <Typography>Address: {brewery.street}, {brewery.city}, {brewery.state}, {brewery.postal_code}</Typography>
+          <Typography mb={0.5}>Phone: {brewery.phone}</Typography>
+          <MuiLink color="secondary" href={brewery.website_url}>Website: {brewery.website_url}</MuiLink>
         </div>
       ) : (
         <div>No brewery found</div>

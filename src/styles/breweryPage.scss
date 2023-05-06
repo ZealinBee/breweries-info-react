@@ -1,10 +1,12 @@
 .brewery {
+    margin-top:1rem;
+    margin-left:1rem;
     .brewery__details {
         width:80%;
         display:flex;
         flex-direction: column;
         margin: 0 auto;
-        margin-top:1rem;
+        margin-top:3rem;
         align-items: center;
     }
 }

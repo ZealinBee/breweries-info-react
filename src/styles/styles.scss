@@ -8,3 +8,14 @@ body {
 .title {
     text-align: center;
 }
+
+header {
+    margin-bottom:1rem;
+    margin-top:1rem;
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    
+    }
+}

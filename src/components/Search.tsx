@@ -1,4 +1,5 @@
 import React from "react";
+import { TextField } from "@mui/material";
 
 interface Props {
   search: string;
@@ -7,11 +8,14 @@ interface Props {
 function Search(props: Props) {
   return (
     <>
-      <input
-        type="text"
-        onChange={(e) => props.setSearch(e.target.value)}
+      <TextField
+        id="standard-basic"
+        label="By Breweries Name"
+        variant="standard"
         value={props.search}
-        placeholder="Search for a brewery's name..."
+        onChange={(e) => props.setSearch(e.target.value)}
+        color="secondary"
+        size="medium"
       />
     </>
   );
