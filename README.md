@@ -1,25 +1,44 @@
-# Breweries App
+# Introduction
 
-Fetch, display, and search for brewery companies from the given API endpoint, using React and TypeScript
+This project uses typescript react to build an app that shows brewery information.It has some performance optimizations and it uses material UI for the styling and layout.
 
-## Requirements
+## Table of Content
 
-1. Check the documentation at [https://www.openbrewerydb.org/documentation](https://www.openbrewerydb.org/documentation) Fetch and display information of all the companies.
+- [Technologies](#technologies)
+- [Project Structure](#project-strucutre)
+- [Getting Started](#getting-started)
 
-2. Have proper display and routing that user can switch to/back from specific company's detailed page
+## Technologies
 
-3. Create search component to enable user to input text and search for companies by name.
+- REACT
+- REACT ROUTER
+- MUI
+- TYPESCRIPT
+- SCSS
 
-4. Use MaterialUI to make your design more appealing and responsive
+## Features
 
-5. Implement performance optimization where applicable
+- See all the breweries
+- Pagination feature
+- Search feature with debounce
+- Ability to see details for individual breweries
 
-6. Deploy your application and rewrite README file
+## Project Structure
 
-## Optional
+```
+    ├── index.html
+    ├── index.js
+    ├── package.json
+    ├── README.md
+    ├── style.css
+    ├── style.css.map
+    └── style.scss
 
-7. Use the queries listed in the documentation to sort and limit the returned data and build pagination feature.
+```
 
-8. Create a contact form so that user can send question along with their contact information. 
+## Getting Started
 
-9. Use Google-login option to pre-fill the contact form for user.
+Clone the repository from github with `git clone` Then `npm i` for the packages and lastly `npm start` and go to your http://localhost:3000 to see the website  
+Here is the deployed website: [Deployed Website][1]
+
+[1]: https://unique-torrone-d43588.netlify.app/

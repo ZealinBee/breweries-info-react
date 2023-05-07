@@ -32,6 +32,8 @@ function BreweriesList(props: Props) {
     indexOfFirstBrewery,
     indexOfLastBrewery
   );
+  const isFirstPage = props.currentPage === 1;
+  const isLastPage = props.currentPage === Math.ceil(props.breweries.length / breweriesPerPage);
 
   function handlePageChange(event: React.ChangeEvent<unknown>, value: number) {
     props.setCurrentPage(value);
@@ -50,6 +52,9 @@ function BreweriesList(props: Props) {
         count={Math.ceil(props.breweries.length / breweriesPerPage)}
         shape="rounded"
         onChange={handlePageChange}
+        className="pagination"
+        // Basically if there's only one page, disable the pagination buttons
+        disabled={isFirstPage && isLastPage}
       ></Pagination>
     </Container>
   );
