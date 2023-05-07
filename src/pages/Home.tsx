@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import BreweriesList from "../components/BreweriesList";
-import Filter from "../components/Filter";
 import Search from "../components/Search";
 import Brewery from "../interfaces/Brewery";
 import { Typography } from "@mui/material";
@@ -43,7 +42,6 @@ function Home() {
       <header>
         <Typography variant="h4" fontWeight={700} className="title">Breweries🍺</Typography>
         <nav>
-          <Filter></Filter>
           <Search search={search} setSearch={setSearch}></Search>
         </nav>
       </header>
