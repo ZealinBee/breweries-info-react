@@ -29,7 +29,7 @@ function BreweryPage() {
           <MuiLink color="secondary" href={brewery.website_url}>Website: {brewery.website_url}</MuiLink>
         </div>
       ) : (
-        <div>No brewery found</div>
+        <div>Loading Brewery...</div>
       )}
     </div>
   );

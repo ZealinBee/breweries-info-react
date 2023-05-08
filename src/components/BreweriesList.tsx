@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import BreweryCard from "./BreweryCard";
 import Brewery from "../interfaces/Brewery";
-import withLoading from "./withLoading";
 import { Grid, Container, Pagination } from "@mui/material";
 
 interface Props {
@@ -14,7 +13,7 @@ interface Props {
   setCurrentPage: (currentPage: number) => void;
 }
 
-function BreweriesList(props: Props) {
+function BreweriesList(props: Props) {  
   const [breweriesPerPage, setBreweriesPerPage] = useState(8);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function BreweriesList(props: Props) {
         props.setBreweries(response.data);
         props.setOriginalBreweries(response.data);
       });
-  }, []);
+  }, [props.setBreweries, props.setOriginalBreweries]);
 
   const indexOfLastBrewery = props.currentPage * breweriesPerPage;
   const indexOfFirstBrewery = indexOfLastBrewery - breweriesPerPage;

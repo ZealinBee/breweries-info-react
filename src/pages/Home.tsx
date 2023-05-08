@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BreweriesList from "../components/BreweriesList";
 import Search from "../components/Search";
 import Brewery from "../interfaces/Brewery";
+import ThemeToggleButton from "../components/ThemeToggleButton";
 import { Typography } from "@mui/material";
 
 function Home() {
@@ -42,6 +43,7 @@ function Home() {
       <header>
         <Typography variant="h4" fontWeight={700} className="title">Breweries🍺</Typography>
         <nav>
+          <ThemeToggleButton></ThemeToggleButton>
           <Search search={search} setSearch={setSearch}></Search>
         </nav>
       </header>

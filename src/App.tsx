@@ -8,8 +8,14 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 
+type ChangeThemeFunc = () => void;
+export const ThemeModeContext = React.createContext<ChangeThemeFunc | null>(null);
+
 const App = () => {
   const [mode, setMode] = useState<"light" | "dark">("light");
+  const changeMode = () => {
+    setMode(mode === "dark" ? "light" : "dark");
+  };
   const theme = createTheme({
     palette:
       mode === "light"
@@ -17,15 +23,15 @@ const App = () => {
             primary: {
               main: "#F2F4CB",
             },
-            secondary: purple
+            secondary: purple,
           }
         : {
             primary: {
               main: "#272838",
             },
             secondary: {
-              main: purple[200]
-            }
+              main: purple[200],
+            },
           },
     typography: {
       fontFamily: "Lato",
@@ -33,21 +39,21 @@ const App = () => {
       fontWeightRegular: 400,
       fontWeightMedium: 500,
       fontWeightBold: 700,
-    }
+    },
   });
+
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route
-            path="/breweries/:id"
-            element={<BreweryPage></BreweryPage>}
-          ></Route>
-          <Route path="*" element={<NotFound></NotFound>}></Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <ThemeModeContext.Provider value={changeMode}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/breweries/:id" element={<BreweryPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </ThemeModeContext.Provider>
   );
 };
 

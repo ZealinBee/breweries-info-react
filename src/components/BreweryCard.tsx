@@ -1,7 +1,6 @@
 import React from "react";
 import Brewery from "../interfaces/Brewery";
 import { Link } from "react-router-dom";
-import BreweryPage from "../pages/BreweryPage";
 import { Button, Card, Typography } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 
