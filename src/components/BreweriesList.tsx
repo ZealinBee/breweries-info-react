@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import BreweryCard from "./BreweryCard";
 import Brewery from "../interfaces/Brewery";
@@ -14,7 +14,6 @@ interface Props {
 }
 
 function BreweriesList(props: Props) {  
-  const [breweriesPerPage, setBreweriesPerPage] = useState(8);
 
   useEffect(() => {
     axios
@@ -25,6 +24,7 @@ function BreweriesList(props: Props) {
       });
   }, [props.setBreweries, props.setOriginalBreweries]);
 
+  const breweriesPerPage = 8;
   const indexOfLastBrewery = props.currentPage * breweriesPerPage;
   const indexOfFirstBrewery = indexOfLastBrewery - breweriesPerPage;
   const currentBreweries = props.breweries.slice(

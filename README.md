@@ -26,13 +26,26 @@ This project uses typescript react to build an app that shows brewery informatio
 ## Project Structure
 
 ```
-    ├── index.html
-    ├── index.js
-    ├── package.json
-    ├── README.md
-    ├── style.css
-    ├── style.css.map
-    └── style.scss
+ ├── App.tsx
+├── index.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+├── setupTests.ts
+├── components
+│   ├── BreweriesList.tsx
+│   ├── BreweryCard.tsx
+│   ├── Search.tsx
+│   └── ThemeToggleButton.tsx
+├── interfaces
+│   └── Brewery.ts
+├── pages
+│   ├── BreweryPage.tsx
+│   ├── Home.tsx
+│   └── NotFound.tsx
+└── styles
+    ├── breweryPage.scss
+    ├── card.scss
+    └── styles.scss
 
 ```
 

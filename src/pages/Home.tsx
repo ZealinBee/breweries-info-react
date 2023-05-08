@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import BreweriesList from "../components/BreweriesList";
 import Search from "../components/Search";
 import Brewery from "../interfaces/Brewery";
