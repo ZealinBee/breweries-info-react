@@ -54,4 +54,4 @@ This project uses typescript react to build an app that shows brewery informatio
 Clone the repository from github with `git clone` Then `npm i` for the packages and lastly `npm start` and go to your http://localhost:3000 to see the website  
 Here is the deployed website: [Deployed Website][1]
 
-[1]: https://unique-torrone-d43588.netlify.app/
+[1]: https://brewery-zealinbee.netlify.app/

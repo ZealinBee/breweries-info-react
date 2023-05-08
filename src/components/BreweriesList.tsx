@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import BreweryCard from "./BreweryCard";
 import Brewery from "../interfaces/Brewery";
@@ -13,16 +13,17 @@ interface Props {
   setCurrentPage: (currentPage: number) => void;
 }
 
-function BreweriesList(props: Props) {  
-
+function BreweriesList(props: Props) {
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     axios
       .get<Brewery[]>("https://api.openbrewerydb.org/breweries")
       .then((response: AxiosResponse) => {
         props.setBreweries(response.data);
         props.setOriginalBreweries(response.data);
+        setLoading(false);
       });
-  }, [props.setBreweries, props.setOriginalBreweries]);
+  }, []);
 
   const breweriesPerPage = 8;
   const indexOfLastBrewery = props.currentPage * breweriesPerPage;
@@ -32,30 +33,37 @@ function BreweriesList(props: Props) {
     indexOfLastBrewery
   );
   const isFirstPage = props.currentPage === 1;
-  const isLastPage = props.currentPage === Math.ceil(props.breweries.length / breweriesPerPage);
+  const isLastPage =
+    props.currentPage === Math.ceil(props.breweries.length / breweriesPerPage);
 
   function handlePageChange(event: React.ChangeEvent<unknown>, value: number) {
     props.setCurrentPage(value);
   }
 
   return (
-    <Container>
-      <Grid container spacing={2}>
-        {currentBreweries.map((brewery) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={brewery.id}>
-            <BreweryCard brewery={brewery} />
+    <>
+      {loading ? (
+        <div>Loading Breweries...</div>
+      ) : (
+        <Container>
+          <Grid container spacing={2}>
+            {currentBreweries.map((brewery) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={brewery.id}>
+                <BreweryCard brewery={brewery} />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-      <Pagination
-        count={Math.ceil(props.breweries.length / breweriesPerPage)}
-        shape="rounded"
-        onChange={handlePageChange}
-        className="pagination"
-        // Basically if there's only one page, disable the pagination buttons
-        disabled={isFirstPage && isLastPage}
-      ></Pagination>
-    </Container>
+          <Pagination
+            count={Math.ceil(props.breweries.length / breweriesPerPage)}
+            shape="rounded"
+            onChange={handlePageChange}
+            className="pagination"
+            // Basically if there's only one page, disable the pagination buttons
+            disabled={isFirstPage && isLastPage}
+          ></Pagination>
+        </Container>
+      )}
+    </>
   );
 }
 
