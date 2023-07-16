@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import BreweryPage from "./pages/BreweryPage";
@@ -42,16 +43,27 @@ const App = () => {
     },
   });
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/breweries/:id",
+      element: <BreweryPage />,
+      errorElement: <NotFound />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    }
+  ])
+
   return (
     <ThemeModeContext.Provider value={changeMode}>
       <ThemeProvider theme={theme}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/breweries/:id" element={<BreweryPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
+        <RouterProvider router={router}></RouterProvider>
       </ThemeProvider>
     </ThemeModeContext.Provider>
   );
