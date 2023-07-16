@@ -3,7 +3,7 @@ import BreweriesList from "../components/BreweriesList";
 import Search from "../components/Search";
 import Brewery from "../interfaces/Brewery";
 import ThemeToggleButton from "../components/ThemeToggleButton";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 function Home() {
   const [search, setSearch] = useState<string>("");
@@ -24,8 +24,8 @@ function Home() {
               brewery.name.toLowerCase().includes(search.toLowerCase())
             )
           );
-          setCurrentPage(1)
-        } else if(search === "") {
+          setCurrentPage(1);
+        } else if (search === "") {
           setBreweries(originalBreweries);
         }
       }, 1000)
@@ -39,9 +39,16 @@ function Home() {
   }, [search, originalBreweries]);
 
   return (
-    <>
+    <Box sx={{ minHeight: "100vh", backgroundColor: "background.default" }}>
       <header>
-        <Typography variant="h4" fontWeight={700} className="title">Breweries🍺</Typography>
+        <Typography
+          variant="h4"
+          fontWeight={700}
+          className="title"
+          sx={{ color: "text.primary" }}
+        >
+          Breweries🍺
+        </Typography>
         <nav>
           <ThemeToggleButton></ThemeToggleButton>
           <Search search={search} setSearch={setSearch}></Search>
@@ -57,7 +64,7 @@ function Home() {
           setOriginalBreweries={setOriginalBreweries}
         ></BreweriesList>
       </main>
-    </>
+    </Box>
   );
 }
 

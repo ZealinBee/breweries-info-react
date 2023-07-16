@@ -9,9 +9,9 @@ interface BreweryCardProps {
 }
 function BreweryCard(props: BreweryCardProps) {
   return (
-    <Card className="card">
-      <Typography mb={4} fontWeight={700} fontSize={20}>{props.brewery.name}</Typography>
-      <Typography mb={1} fontWeight={400} >{props.brewery.state}</Typography>
+    <Card className="card" sx={{backgroundColor:"background.default"}}> 
+      <Typography mb={4} fontWeight={700} fontSize={20} sx={{color:"text.primary"}}>{props.brewery.name}</Typography>
+      <Typography mb={1} fontWeight={400} sx={{color:"text.primary"}}>{props.brewery.state}</Typography>
       <MuiLink color="secondary" href={props.brewery.website_url}>
         {props.brewery.website_url}
       </MuiLink>

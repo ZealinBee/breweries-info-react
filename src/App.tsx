@@ -25,6 +25,12 @@ const App = () => {
               main: "#F2F4CB",
             },
             secondary: purple,
+            background: {
+              default: "#FFFFFF",
+            },
+            text: {
+              primary: "#272838",
+            }
           }
         : {
             primary: {
@@ -33,6 +39,12 @@ const App = () => {
             secondary: {
               main: purple[200],
             },
+            background: {
+              default: "#272838",
+            },
+            text: {
+              primary: "#FFFFFF",
+            }
           },
     typography: {
       fontFamily: "Lato",
@@ -63,7 +75,7 @@ const App = () => {
   return (
     <ThemeModeContext.Provider value={changeMode}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router}></RouterProvider>
+        <RouterProvider router={router} ></RouterProvider>
       </ThemeProvider>
     </ThemeModeContext.Provider>
   );
