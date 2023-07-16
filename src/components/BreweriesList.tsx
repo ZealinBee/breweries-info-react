@@ -22,7 +22,15 @@ function BreweriesList(props: BreweriesListProps) {
         props.setBreweries(response.data);
         props.setOriginalBreweries(response.data);
         setLoading(false);
-      });
+      })
+      .catch((error) => {
+          if(error.isAxiosError) {
+              console.log(error.status)
+              console.error(error.response)
+          }else {
+              console.error(error)
+          }
+      })
   }, []);
 
   const breweriesPerPage = 8;

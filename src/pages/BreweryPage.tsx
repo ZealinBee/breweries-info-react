@@ -12,7 +12,15 @@ function BreweryPage() {
   useEffect(() => {
     axios
       .get<Brewery>(`https://api.openbrewerydb.org/breweries/${id}`)
-      .then((response: AxiosResponse) => setBrewery(response.data));
+      .then((response: AxiosResponse) => setBrewery(response.data))
+      .catch((error) => {
+        if(error.isAxiosError) {
+            console.log(error.status)
+            console.error(error.response)
+        }else {
+            console.error(error)
+        }
+      })
   }, [id]);
 
   return (
