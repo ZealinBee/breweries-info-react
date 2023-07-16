@@ -26,7 +26,7 @@ function BreweryPage() {
           <Typography>Type: {brewery.brewery_type} brewery</Typography>
           <Typography>Address: {brewery.street}, {brewery.city}, {brewery.state}, {brewery.postal_code}</Typography>
           <Typography mb={0.5}>Phone: {brewery.phone}</Typography>
-          <MuiLink color="secondary" href={brewery.website_url}>Website: {brewery.website_url}</MuiLink>
+          <MuiLink color="secondary" href={brewery.website_url}>Website: {brewery.website_url ? brewery.website_url : "No Website"}</MuiLink>
         </div>
       ) : (
         <div>Loading Brewery...</div>

@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { Button, Card, Typography } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 
-interface Props {
+interface BreweryCardProps {
   brewery: Brewery;
 }
-function BreweryCard(props: Props) {
+function BreweryCard(props: BreweryCardProps) {
   return (
     <Card className="card">
       <Typography mb={4} fontWeight={700} fontSize={20}>{props.brewery.name}</Typography>

@@ -1,11 +1,11 @@
 import React from "react";
 import { TextField } from "@mui/material";
 
-interface Props {
+interface SearchProps {
   search: string;
   setSearch: (search: string) => void;
 }
-function Search(props: Props) {
+function Search(props: SearchProps) {
   return (
     <>
       <TextField

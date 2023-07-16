@@ -4,7 +4,7 @@ import BreweryCard from "./BreweryCard";
 import Brewery from "../interfaces/Brewery";
 import { Grid, Container, Pagination } from "@mui/material";
 
-interface Props {
+interface BreweriesListProps {
   breweries: Brewery[];
   setBreweries: (breweries: Brewery[]) => void;
   originalBreweries: Brewery[];
@@ -13,7 +13,7 @@ interface Props {
   setCurrentPage: (currentPage: number) => void;
 }
 
-function BreweriesList(props: Props) {
+function BreweriesList(props: BreweriesListProps) {
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     axios
